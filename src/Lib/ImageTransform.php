@@ -115,11 +115,9 @@ class ImageTransform implements ImageTransformInterface
      * Crop an image to a certain size from the centre of the image
      *
      * @see http://image.intervention.io/api/crop
-     *
      * @param \Intervention\Image\Image $image Image instance
      * @param int $width Desired width in pixels
      * @param int $height Desired height in pixels
-     *
      * @return \Intervention\Image\Image
      */
     protected function thumbnailCrop(Image $image, $width, $height)
@@ -131,11 +129,9 @@ class ImageTransform implements ImageTransformInterface
      * Resize and crop to find the best fitting aspect ratio
      *
      * @see http://image.intervention.io/api/fit
-     *
      * @param \Intervention\Image\Image $image Image instance
      * @param int $width Desired width in pixels
      * @param int $height Desired height in pixels
-     *
      * @return \Intervention\Image\Image
      */
     protected function thumbnailFit(Image $image, $width, $height)
@@ -147,12 +143,10 @@ class ImageTransform implements ImageTransformInterface
      * Resize current image
      *
      * @see http://image.intervention.io/api/resize
-     *
      * @param \Intervention\Image\Image $image Image instance
      * @param int $width Desired width in pixels
      * @param int $height Desired height in pixels
-     * @param boolean $upsize if false the image will not be upsized
-     *
+     * @param bool $upsize if false the image will not be upsized
      * @return \Intervention\Image\Image
      */
     protected function thumbnailResize(Image $image, $width, $height, $upsize)
@@ -162,22 +156,20 @@ class ImageTransform implements ImageTransformInterface
                 $constraint->aspectRatio();
             });
         } else {
-        return $image->resize($width, $height, function ($constraint) {
-            $constraint->aspectRatio();
+            return $image->resize($width, $height, function ($constraint) {
+                $constraint->aspectRatio();
                 $constraint->upsize();
-        });
-    }
+            });
+        }
     }
 
     /**
      * Call any method from the intervention library
      *
      * @see http://image.intervention.io/
-     *
      * @param \Intervention\Image\Image $image Image instance
      * @param string $custom Method you want to call
      * @param array $params Array of parameters to pass to the method
-     *
      * @return \Intervention\Image\Image
      */
     protected function thumbnailCustom(Image $image, $custom, $params)
@@ -193,7 +185,6 @@ class ImageTransform implements ImageTransformInterface
      * EXIF orientate the current image
      *
      * @see http://image.intervention.io/api/orientate
-     *
      * @param \Intervention\Image\Image $image Image instance
      * @return \Intervention\Image\Image
      */
