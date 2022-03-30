@@ -31,7 +31,6 @@ class ProfferBehavior extends Behavior
      * Build the behaviour
      *
      * @param array $config Passed configuration
-     *
      * @return void
      */
     public function initialize(array $config): void
@@ -54,7 +53,6 @@ class ProfferBehavior extends Behavior
      * @param \Cake\Event\Event $event Event instance
      * @param \ArrayObject $data Data to process
      * @param \ArrayObject $options Array of options for event
-     *
      * @return void
      */
     public function beforeMarshal(Event $event, ArrayObject $data, ArrayObject $options)
@@ -84,7 +82,6 @@ class ProfferBehavior extends Behavior
      * @param \Cake\Datasource\EntityInterface $entity The entity
      * @param \ArrayObject $options Array of options
      * @param \Proffer\Lib\ProfferPathInterface|null $path Inject an instance of ProfferPath
-     *
      * @return true
      * @throws \Exception
      */
@@ -110,7 +107,6 @@ class ProfferBehavior extends Behavior
      * @param array $settings Array of upload settings for the field
      * @param \Cake\Datasource\EntityInterface $entity The current entity to process
      * @param \Proffer\Lib\ProfferPathInterface|null $path Inject an instance of ProfferPath
-     *
      * @return void
      * @throws \Exception If the file cannot be renamed / moved to the correct path
      */
@@ -148,7 +144,6 @@ class ProfferBehavior extends Behavior
      * @param string $field The upload field name
      * @param array $settings Array of upload settings for the field
      * @param \Proffer\Lib\ProfferPathInterface|null $path Inject an instance of ProfferPath
-     *
      * @return \Proffer\Lib\ProfferPathInterface
      * @throws \Proffer\Exception\InvalidClassException If the custom class doesn't implement the interface
      */
@@ -181,7 +176,6 @@ class ProfferBehavior extends Behavior
      * @param \Cake\Datasource\EntityInterface $entity Instance of the entity
      * @param array $settings Array of upload field settings
      * @param \Proffer\Lib\ProfferPathInterface $path Instance of the path class
-     *
      * @return void
      * @throws \Proffer\Exception\InvalidClassException If the transform class doesn't implement the interface
      */
@@ -219,7 +213,6 @@ class ProfferBehavior extends Behavior
      * @param \Cake\Datasource\EntityInterface $entity The entity
      * @param \ArrayObject $options Array of options
      * @param \Proffer\Lib\ProfferPathInterface $path Inject an instance of ProfferPath
-     *
      * @return true
      */
     public function afterDelete(Event $event, EntityInterface $entity, ArrayObject $options, ?ProfferPathInterface $path = null)

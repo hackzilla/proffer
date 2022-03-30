@@ -64,11 +64,11 @@ class ProfferBehaviorTest extends TestCase
         if (is_dir($dir)) {
             $objects = scandir($dir);
             foreach ($objects as $object) {
-                if ($object != "." && $object != "..") {
-                    if (filetype($dir . "/" . $object) == "dir") {
-                        $this->_rrmdir($dir . "/" . $object);
+                if ($object != '.' && $object != '..') {
+                    if (filetype($dir . '/' . $object) == 'dir') {
+                        $this->_rrmdir($dir . '/' . $object);
                     } else {
-                        unlink($dir . "/" . $object);
+                        unlink($dir . '/' . $object);
                     }
                 }
             }
@@ -171,7 +171,6 @@ class ProfferBehaviorTest extends TestCase
 
     /**
      * @dataProvider beforeMarshalProvider
-     *
      * @param array $data
      * @param bool $allowEmpty
      * @param array $expected
@@ -244,7 +243,6 @@ class ProfferBehaviorTest extends TestCase
      * A bit of a unit and integration test as it will still dispatch the events to the listener
      *
      * @dataProvider validFileProvider
-     *
      * @param array $entityData
      * @param array $expected
      * @throws \Exception
@@ -532,7 +530,6 @@ class ProfferBehaviorTest extends TestCase
     /**
      * @param array $pathData An array of data to pass into the path customisation
      * @param string $expected
-     *
      * @dataProvider providerPathEvents
      */
     public function testChangingThePathUsingEvents(array $pathData, $expected)
