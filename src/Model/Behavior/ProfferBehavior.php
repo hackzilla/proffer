@@ -232,7 +232,7 @@ class ProfferBehavior extends Behavior
         foreach ($this->getConfig() as $field => $settings) {
             $dir = $entity->get($settings['dir']);
 
-            if (!empty($entity) && !empty($dir)) {
+            if (!empty($dir)) {
                 if (!empty($settings['pathClass'])) {
                     $path = new $settings['pathClass']($this->_table, $entity, $field, $settings);
                 } elseif (!isset($path)) {
