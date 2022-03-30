@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Cake\\\\Datasource\\\\RepositoryInterface\\:\\:hasBehavior\\(\\)\\.$#"
+			count: 1
+			path: src/Shell/ProfferShell.php
+
