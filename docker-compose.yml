@@ -1,0 +1,9 @@
+version: '3'
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: ./local-php-dockerfile
+    container_name: proffer-php
+    volumes:
+      - ./:/var/www/html

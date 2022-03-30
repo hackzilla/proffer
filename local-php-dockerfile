@@ -1,0 +1,13 @@
+# Development PHP environment
+FROM php:7.4-fpm-alpine3.14
+COPY composer.* ./
+RUN apk update \
+    && apk add git composer gmp gmp-dev icu-dev zlib-dev gcompat ${PHPIZE_DEPS} \
+        # Needed for PHP GD
+        freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
+    && mv "${PHP_INI_DIR}/php.ini-development" "${PHP_INI_DIR}/php.ini" \
+    && docker-php-ext-configure gmp \ 
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) exif gd gmp intl \ 
+    && apk del ${PHPIZE_DEPS} freetype-dev libpng-dev libjpeg-turbo-dev 
+WORKDIR /var/www/html
