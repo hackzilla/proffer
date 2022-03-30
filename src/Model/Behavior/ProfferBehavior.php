@@ -85,8 +85,12 @@ class ProfferBehavior extends Behavior
      * @return true
      * @throws \Exception
      */
-    public function beforeSave(Event $event, EntityInterface $entity, ArrayObject $options, ?ProfferPathInterface $path = null)
-    {
+    public function beforeSave(
+        Event $event,
+        EntityInterface $entity,
+        ArrayObject $options,
+        ?ProfferPathInterface $path = null
+    ) {
         foreach ($this->getConfig() as $field => $settings) {
             if ($entity->has($field) && $entity->get($field) instanceof UploadedFileInterface) {
                 if ($entity->get($field)->getError() === UPLOAD_ERR_OK) {
@@ -152,7 +156,9 @@ class ProfferBehavior extends Behavior
         if (!empty($settings['pathClass'])) {
             $path = new $settings['pathClass']($this->_table, $entity, $field, $settings);
             if (!$path instanceof ProfferPathInterface) {
-                throw new InvalidClassException("Class {$settings['pathClass']} does not implement the ProfferPathInterface.");
+                throw new InvalidClassException(
+                    "Class {$settings['pathClass']} does not implement the ProfferPathInterface."
+                );
             }
         } elseif (!isset($path)) {
             $path = new ProfferPath($this->_table, $entity, $field, $settings);
@@ -190,7 +196,9 @@ class ProfferBehavior extends Behavior
         if (!empty($settings['transformClass'])) {
             $imageTransform = new $settings['transformClass']($this->_table, $path);
             if (!$imageTransform instanceof ImageTransformInterface) {
-                throw new InvalidClassException("Class {$settings['pathClass']} does not implement the ImageTransformInterface.");
+                throw new InvalidClassException(
+                    "Class {$settings['pathClass']} does not implement the ImageTransformInterface."
+                );
             }
         } else {
             $imageTransform = new ImageTransform($this->_table, $path);
@@ -215,8 +223,12 @@ class ProfferBehavior extends Behavior
      * @param \Proffer\Lib\ProfferPathInterface $path Inject an instance of ProfferPath
      * @return true
      */
-    public function afterDelete(Event $event, EntityInterface $entity, ArrayObject $options, ?ProfferPathInterface $path = null)
-    {
+    public function afterDelete(
+        Event $event,
+        EntityInterface $entity,
+        ArrayObject $options,
+        ?ProfferPathInterface $path = null
+    ) {
         foreach ($this->getConfig() as $field => $settings) {
             $dir = $entity->get($settings['dir']);
 
