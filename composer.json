@@ -17,7 +17,7 @@
 	  "source": "https://github.com/davidyell/CakePHP-Proffer/tree/cake-4"
 	},
 	"require": {
-		"php": ">=7.2",
+		"php": ">=7.4",
 		"cakephp/orm": "~4.0",
 		"intervention/image": "^2.5"
 	},
