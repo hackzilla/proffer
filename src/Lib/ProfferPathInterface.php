@@ -4,10 +4,8 @@ declare(strict_types=1);
 /**
  * @category Proffer
  * @package ProfferPathInterface.php
- *
  * @author David Yell <neon1024@gmail.com>
  * @when 23/03/15
- *
  */
 
 namespace Proffer\Lib;
