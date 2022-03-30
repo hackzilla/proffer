@@ -24,7 +24,8 @@
   	"require-dev": {
 	  "phpunit/phpunit": "^8.5",
 	  "cakephp/cakephp": "~4.0",
-	  "cakephp/cakephp-codesniffer": "~4.0"
+	  "cakephp/cakephp-codesniffer": "~4.0",
+	  "phpstan/phpstan": "^1.4.10"
 	},
 	"autoload": {
 	  "psr-4": {
@@ -41,6 +42,7 @@
 	"scripts": {
 		"cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
 		"cs-fix": "phpcbf --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP src/ tests/",
+		"phpstan": "phpstan analyse --level=4 --memory-limit 512M --configuration=phpstan.neon ./src",
 		"test": "phpunit --colors=always"
 	}
 }
